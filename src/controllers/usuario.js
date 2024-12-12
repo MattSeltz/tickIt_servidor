@@ -2,7 +2,7 @@ import { Usuario } from "../models/usuario.js"
 
 export const getData = async (req, res) => {
   try {
-    const usuario = await Usuario.find().populate("tarea")
+    const usuario = await Usuario.find().populate("tareas")
     res.json(usuario)
   } catch (error) {
     console.error(error)
@@ -13,7 +13,7 @@ export const getOneData = async (req, res) => {
   const {id} = req.params
 
   try {
-    const usuario = await Usuario.findById(id).populate("tarea")
+    const usuario = await Usuario.findById(id).populate("tareas")
     res.json(usuario)
   } catch (error) {
     console.error(error)

@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-import {getData,getOneData,postData,putData,deleteData} from "..controllers/tarea.js"
+import {getData,getOneData,postData,putData,deleteData} from "../controllers/tarea.js"
 
 const router = Router()
 

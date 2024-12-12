@@ -7,6 +7,8 @@ import { PORT } from "./configs/configs.js"
 
 import usuariosRoutes from "./routes/usuario.js"
 import tareasRoutes from "./routes/tarea.js"
+import authRoutes from "./auth/auth.js"
+import authenticateToken from "./middlewares/auth.js"
 
 await db()
 
@@ -14,6 +16,10 @@ const app = e()
 
 app.use(e.json())
 app.use(cors())
+
+app.use(authenticateToken)
+
+app.use("/auth", authRoutes)
 
 app.use("/usuarios", usuariosRoutes)
 app.use("/tareas", tareasRoutes)
